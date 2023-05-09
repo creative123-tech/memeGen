@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Meme Generator</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap');
+
+    body {
+         background-image: url("img/sad5.jpg");
+
+    }
+
+    .container {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -90%);
+        background-color: #26adf0;
+        border-radius: 8px;
+        padding: 8px; 
+        box-shadow: 4px 4px 6px rgba(26, 28, 28, 0.4);
+
+    }
+
+    .container h1 {
+        font-family: 'Darumadrop One', cursive;
+        color: white; 
+        
+    }
+
+    .container2 {
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        margin-top: 60px;
+    }
+
+    .container2 img {
+        
+        max-width: 700px; 
+        max-height: 400px; 
+    
+    } 
+
+
+   .skip2 {
+        
+        max-width: 100px; 
+        max-height: 50px; 
+        border-radius: 4px;
+        margin: 0px;
+        
+    }
+    
+    .hidden {
+        display: none;
+
+    }
+
+
+
+    .btn {
+  border: none;
+  border-radius: 10px;
+  background-color: #b43edb;
+  color: white;
+  padding: 5px;
+  width: 80%; 
+  margin: auto;
+  margin-left: 15px;
+  cursor: pointer; 
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  font-family: 'Hind Siliguri', sans-serif;
+
+}
+
+.btn:hover {
+  background-color: #ac00e6;
+  transform: scale(1.1);
+}
+
+.btn:active {
+  animation-name: button-click;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-out;
+}
+
+
+@keyframes button-click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.green {
+    background-color:#6db547;
+}
+
+.green:hover {
+  background-color:#6db547;
+  transform: scale(1.1);
+}
+
+.happy {
+    background-image: url('img/happy.webp');
+}
+
+
+
+    @media (max-width: 850px) {  
+
+        .container {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -90%);
+            background-color: #26adf0;
+            border-radius: 8px;
+            padding: 88px; 
+            box-shadow: 4px 4px 6px rgba(26, 28, 28, 0.4);
+
+        }
+
+    }
+
+    @media (max-width: 1280px) {  
+
+        .container {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -90%);
+            background-color: #26adf0;
+            border-radius: 8px;
+            padding: 88px; 
+            box-shadow: 4px 4px 6px rgba(26, 28, 28, 0.4);
+
+        }
+
+        .container h1 {
+        font-family: 'Darumadrop One', cursive;
+        color: white; 
+        font-weight: 700;
+        
+    }
+
+    }
+
+</style>
+
+<body>
+    <div class="container">
+
+        <h1>Sad Today ?</h1>
+        <button id="generate-button" class="btn"> Click Me <img src="img/skip2 (2).jpg" alt="" class="skip2 hidden"></button>
+    </div>
+
+    <div class="container2" id="insult-text">
+
+    </div>
+    <script>
+
+        
+        const insultWords = [
+        {
+                image: "<img src='img/jetha.jpg'>",
+                audio: new Audio('ad/jetha.mp3')
+            },
+        {
+                image: "<img src='img/manoj.jpg'>",
+                audio: new Audio('ad/manojcut.mp3')
+            },
+        {
+                image: "<img src='img/pankaj.webp'>",
+                audio: new Audio('ad/pankaj.mp3')
+            },
+        {
+                image: "<img src='img/puneet2.jpg'>",
+                audio: new Audio('ad/puneetlau.mp3')
+            },
+        {
+                image: "<img src='img/gadari.jpg'>",
+                audio: new Audio('ad/gadaricutm.mp3')
+            },
+        {
+                image: "<img src='img/150rupeya.jpg'>",
+                audio: new Audio('ad/150cut.mp3')
+            },
+        {
+                image: "<img src='img/aaha.jpg'>",
+                audio: new Audio('ad/aahaa.mp3')
+            },
+        {
+                image: "<img src='img/laughHead.jpg'>",
+                audio: new Audio('ad/laughHead.mp3')
+            },
+        {
+                image: "<img src='img/wawa1.jpg'>",
+                audio: new Audio('ad/waw.mp3')
+            },
+        {
+                image: "<img src='img/baapkomt.jpg'>",
+                audio: new Audio('ad/hamaloom.mp3')
+            },
+        {
+                image: "<img src='img/zakir.jpg'>",
+                audio: new Audio('ad/zakirc.mp3')
+            },
+        {
+                image: "<img src='img/smallboy.jpg'>",
+                audio: new Audio('ad/smallboy.mp3')
+            },
+        {
+                image: "<img src='img/ashneer.jpg'>",
+                audio: new Audio('ad/ashmp.mp3')
+            },
+        {
+                image: "<img src='img/munna.jpg'>",
+                audio: new Audio('ad/munna.mp3')
+            },
+        {
+                image: "<img src='img/paisa.jpeg'>",
+                audio: new Audio('ad/25.mp3')
+            },
+        {
+                image: "<img src='img/sorry.jpg'>",
+                audio: new Audio('ad/sorry.mp3')
+            },
+            
+        ];
+
+        const btnAudio = new Audio('ad/skipcut.mp3');
+        let currentInsultAudio = null;
+        function generateInsult() {
+    // Stop the previously playing insult audio, if any
+    if (currentInsultAudio) {
+        currentInsultAudio.pause();
+        currentInsultAudio.currentTime = 0;
+    }
+
+    const insultIndex = Math.floor(Math.random() * insultWords.length);
+    const insult = insultWords[insultIndex];
+    document.getElementById("insult-text").innerHTML = insult.image;
+    currentInsultAudio = insult.audio;
+    insult.audio.play();
+}
+
+        document.getElementById("generate-button").addEventListener("click", generateInsult); 
+        const button = document.getElementById("generate-button");
+button.addEventListener("click", function() {
+    btnAudio.play()
+    const image = button.querySelector(".skip2");
+    const btn = document.getElementById("generate-button").classList; 
+    const body = document.getElementsByTagName('body')[0];
+
+    if (image.classList.contains("hidden")) {
+        image.classList.remove("hidden");
+        button.innerHTML = '<img src="img/skip3.jpg" class= "skip2" />' ;
+       btn.add('green') ; 
+       body.style.backgroundImage = 'url("img/happy.webp")';
+      
+       
+    }
+    generateInsult();
+});
+    </script>
+</body>
+
+</html>
